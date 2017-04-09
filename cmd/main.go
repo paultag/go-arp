@@ -13,10 +13,7 @@ func main() {
 		panic(err)
 	}
 	for _, entry := range arpTable {
-		vendor, err := maclookup.Lookup(entry.MAC)
-		if err != nil {
-			panic(err)
-		}
+		vendor := maclookup.Lookup(entry.MAC)
 		fmt.Printf(
 			"%s %s %s\n",
 			entry.IP,
