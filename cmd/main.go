@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"pault.ag/go/arp"
+	"pault.ag/go/maclookup"
 )
 
 func main() {
@@ -12,6 +13,15 @@ func main() {
 		panic(err)
 	}
 	for _, entry := range arpTable {
-		fmt.Printf("%s\n", entry)
+		vendor, err := maclookup.Lookup(entry.MAC)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Printf(
+			"%s %s %s\n",
+			entry.IP,
+			entry.MAC,
+			vendor.Name,
+		)
 	}
 }
