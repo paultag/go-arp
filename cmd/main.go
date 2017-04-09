@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	"pault.ag/go/arp"
 	"pault.ag/go/maclookup"
+	"pault.ag/go/proc-arp"
 )
 
 func main() {
-	arpTable, err := arp.LoadARPTable()
+	arpTable, err := proc_arp.LoadARPTable()
 	if err != nil {
 		panic(err)
 	}

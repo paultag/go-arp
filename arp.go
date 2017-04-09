@@ -1,4 +1,4 @@
-package arp
+package proc_arp
 
 import (
 	"bufio"
